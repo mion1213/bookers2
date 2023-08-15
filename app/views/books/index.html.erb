@@ -1,8 +1,17 @@
-<h2>Books</h2>
-<% @books.each do |book| %>
-  <div>
-    <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-    <p>Title<%= book.book_name %></p>
-    <p>Opinion<%= book.opinion %></p>
+<div class="container px-5 px-sm-0">
+  <div calss="row">
+    <%= render 'list', user: @user %>
+    
+    
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <% @books.each do |book| %>
+        <div>
+          <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+          <p>Title<%= book.book_name %></p>
+          <p>Opinion<%= book.opinion %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
