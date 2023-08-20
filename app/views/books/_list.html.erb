@@ -15,7 +15,8 @@
 
   
 <div class="row">
-  <a class="btn btn-outline-secondary btn-block" href="<%= edit_user_path(@user,user.id) %>" role="button">
+  <!--href編集必須-->
+  <a class="btn btn-outline-secondary btn-block" href="edit_user_path(user)" role="button">
     <i class="fa-solid fa-user-gear"></i>
   </a>
 </div>
@@ -25,11 +26,11 @@
 <form>
   <div class="form-group">
     <label for="book_name">Title</label>
-    <input type="text" class="form-control" id="book_name">
+    <input type="text" class="form-control" id="book_name" name="book[book_name]">
   </div>
   <div class="form-group">
     <label for="opinion">Opinion</label>
-    <textarea class="form-control" id="opinion"></textarea>
+    <textarea class="form-control" id="opinion" name="book[opinion]"></textarea>
   </div>
   <button type="submit" class="btn btn-success">Create Book</button>
 </form>

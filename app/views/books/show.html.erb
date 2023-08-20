@@ -8,14 +8,18 @@
       <table class="table table-hober table-inverse">
         <thead></thead>
         <tbody>
-          <% @books.each do |book| %>
+          <% @book.each do |book| %>
           <tr>
             <td>
               <%= image_tag book.user.get_profile_image(100,100) %> <br>
-              <%= book.user.name %>
+              <%= link_to user_path(user.id) do %>
+                <%= book.user.name %>
+              <% end %>
             </td>
             <td>
-              <a href="book_path"><%= book.book_name %></a>
+              <%= link_to book_path(book.id) do %>
+                <%= book.book_name %>
+              <% end %>
             </td>
             <td>
               <%= book.opinion %>

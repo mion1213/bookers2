@@ -24,7 +24,11 @@
             <ul class="navbar-nav ml-auto">
             <!--マイページ-->
             <li class="nav-item">
-              <%= link_to 'Home', users_path(current_user), class: 'nav-link text-white' %>
+              <% if current_user %>
+                <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-white' %>
+              <% else %>
+                <%= link_to 'Home', root_path, class: 'nav-link text-white' %>
+              <% end %>
             </li>
             <% if user_signed_in? %>
             <!--投稿者一覧-->
