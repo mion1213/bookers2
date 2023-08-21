@@ -1,31 +1,29 @@
-<div class="container px-5">
+<div class="container">
   <div class="row">
     <div class="col-3">
       <%= render 'author', user: @user %>
     </div>
-    <div class="col-8">
+    <div class="col-8 offset-1">
       <h2>Books detail</h2>
       <table class="table table-hober table-inverse">
         <thead></thead>
         <tbody>
-          <% @book.each do |book| %>
           <tr>
             <td>
-              <%= image_tag book.user.get_profile_image(100,100) %> <br>
-              <%= link_to user_path(user.id) do %>
-                <%= book.user.name %>
+              <%= image_tag @book.user.get_profile_image(80,80) %> <br>
+              <%= link_to user_path(@user.id) do %>
+                <%= @book.user.name %>
               <% end %>
             </td>
             <td>
-              <%= link_to book_path(book.id) do %>
-                <%= book.book_name %>
+              <%= link_to book_path(@book.id) do %>
+                <%= @book.book_name %>
               <% end %>
             </td>
             <td>
-              <%= book.opinion %>
+              <%= @book.opinion %>
             </td>
           </tr>
-          <% end %>
         </tbody>
       </table>
     </div>
