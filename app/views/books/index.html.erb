@@ -1,4 +1,12 @@
 <div class="container">
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div class="row">
     <div class="col-3">
       <%= render 'list', user: @user %>
@@ -21,11 +29,11 @@
             </td>
             <td>
               <%= link_to book_path(book.id) do %>
-                <%= book.book_name %>
+                <%= book.title %>
               <% end %>
             </td>
             <td>
-              <%= book.opinion %>
+              <%= book.body %>
             </td>
             <% if @book.user == current_user %>
               <td><%= link_to 'Edit', edit_book_path(book.id) %></td>

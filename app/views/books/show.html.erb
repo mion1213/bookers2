@@ -17,11 +17,11 @@
             </td>
             <td>
               <%= link_to book_path(@book.id) do %>
-                <%= @book.book_name %>
+                <%= @book.title %>
               <% end %>
             </td>
             <td>
-              <%= @book.opinion %>
+              <%= @book.body %>
             </td>
           </tr>
         </tbody>
