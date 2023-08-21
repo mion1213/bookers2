@@ -2,7 +2,7 @@ class Book < ApplicationRecord
   
   belongs_to :user
   
-  validates :book_name, presence: true
-  validates :opinion, presence: true
+  validates :title, presence: true
+  validates :body, length: { in: 1..200 }
   
 end

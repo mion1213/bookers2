@@ -25,32 +25,48 @@
             <!--マイページ-->
             <li class="nav-item">
               <% if current_user %>
-                <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-white' %>
+                <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
+                  <span><i class="fa-solid fa-house-chimney"></i> Home</span>
+                <% end %>
               <% else %>
-                <%= link_to 'Home', root_path, class: 'nav-link text-white' %>
+                <%= link_to root_path, class: 'nav-link text-white' do %>
+                  <span><i class="fa-solid fa-house-chimney"></i> Home</span>
+                <% end %>
               <% end %>
             </li>
             <% if user_signed_in? %>
             <!--投稿者一覧-->
             <li class="nav-item">
-              <%= link_to 'Users', users_path, class: 'nav-link text-white' %>
+              <%= link_to users_path, class: 'nav-link text-white' do %>
+                <span><i class="fa-solid fa-users"></i> Users</span>
+              <% end %>
             </li>
             <!--投稿一覧-->
             <li class="nav-item">
-              <%= link_to 'Books', books_path, class: 'nav-link text-white' %>
+              <%= link_to books_path, class: 'nav-link text-white' do %>
+                <span><i class="fa-solid fa-book-open"></i> Books</span>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+              <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-white' do %>
+                <span><i class="fa-solid fa-right-from-bracket"></i> Log out</span>
+              <% end %>
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to 'About', about_path, class: 'nav-link text-white' %>
+              <%= link_to about_path, class: 'nav-link text-white' do %>
+                <span><i class="fa-solid fa-link"></i> About</span>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-white' %>
+              <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
+                <span><i class="fa-solid fa-user-plus"></i> Sign up</span>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, class: 'nav-link text-white' %>
+              <%= link_to new_user_session_path, class: 'nav-link text-white' do %>
+                <span><i class="fa-solid fa-right-to-bracket"></i> Log in</span>
+              <% end %>
             </li>
             <% end %>
             </ul>
