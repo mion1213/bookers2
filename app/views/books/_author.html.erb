@@ -4,25 +4,25 @@
   <tbody>
     <tr>
       <th>name</th>
-      <th><%= @user.name %></th>
+      <th><%= user.name %></th>
     </tr>
     <tr>
       <th>introduction</th>
-      <th><%= @user.introduction %></th>
+      <th><%= user.introduction %></th>
     </tr>
   </tbody>
 </table>
 
   
 <div class="row">
-  <a class="btn btn-outline-secondary btn-block" href="<%= edit_user_path(@user) %>" role="button">
-    <i class="fa-solid fa-user-gear"></i>
-  </a>
+  <%= link_to edit_user_path(user), class: 'btn btn-outline-secondary btn-block' do %>
+    <span><i class="fas fa-user-cog"></i></span>
+  <% end %>
 </div>
 
 <h2 class="mt-3">New book</h2>
 
-<%= form_with(model: @book, url: books_path, local: true) do |book| %>
+<%= form_with(model: @book, url: books_path, local: true, method: :post) do |book| %>
   <div class="form-group">
     <label for="title">Title</label>
     <input type="text" class="form-control" id="title" name="book[title]">
@@ -31,5 +31,7 @@
     <label for="body">Opinion</label>
     <textarea class="form-control" id="body" name="book[body]"></textarea>
   </div>
-  <button type="submit" class="btn btn-success">Create Book</button>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success">Create Book</button>
+  </div>
 <% end %>

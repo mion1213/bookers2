@@ -22,19 +22,14 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
+            
+            <% if user_signed_in? %>
             <!--マイページ-->
             <li class="nav-item">
-              <% if current_user %>
-                <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
-                  <span><i class="fa-solid fa-house-chimney"></i> Home</span>
-                <% end %>
-              <% else %>
-                <%= link_to root_path, class: 'nav-link text-white' do %>
-                  <span><i class="fa-solid fa-house-chimney"></i> Home</span>
-                <% end %>
+              <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
+                <span><i class="fa-solid fa-home"></i> Home</span>
               <% end %>
             </li>
-            <% if user_signed_in? %>
             <!--投稿者一覧-->
             <li class="nav-item">
               <%= link_to users_path, class: 'nav-link text-white' do %>
@@ -49,10 +44,15 @@
             </li>
             <li class="nav-item">
               <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-white' do %>
-                <span><i class="fa-solid fa-right-from-bracket"></i> Log out</span>
+                <span><i class="fas fa-sign-out-alt"></i> Log out</span>
               <% end %>
             </li>
             <% else %>
+            <li class="nav-item">
+              <%= link_to root_path, class: 'nav-link text-white' do %>
+                <span><i class="fa-solid fa-home"></i> Home</span>
+              <% end %>
+            </li>
             <li class="nav-item">
               <%= link_to about_path, class: 'nav-link text-white' do %>
                 <span><i class="fa-solid fa-link"></i> About</span>
@@ -65,7 +65,7 @@
             </li>
             <li class="nav-item">
               <%= link_to new_user_session_path, class: 'nav-link text-white' do %>
-                <span><i class="fa-solid fa-arrow-right-to-bracket"></i> Log in</span>
+                <span><i class="fas fa-sign-in-alt"></i> Log in</span>
               <% end %>
             </li>
             <% end %>
