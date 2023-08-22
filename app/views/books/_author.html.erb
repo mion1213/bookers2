@@ -1,22 +1,21 @@
 <h2>User info</h2>
-<%= image_tag current_user.get_profile_image(100,100) %>
+<%= image_tag user.get_profile_image(100,100) %>
 <table class="table">
   <tbody>
     <tr>
       <th>name</th>
-      <th><%= user.name %></th>
+      <th><%= @user.name %></th>
     </tr>
     <tr>
       <th>introduction</th>
-      <th><%= user.introduction %></th>
+      <th><%= @user.introduction %></th>
     </tr>
   </tbody>
 </table>
 
   
 <div class="row">
-  <!--下記コードhref修正予定-->
-  <a class="btn btn-outline-secondary btn-block" href="<%= edit_user_path(@user,user.id) %>" role="button">
+  <a class="btn btn-outline-secondary btn-block" href="<%= edit_user_path(@user) %>" role="button">
     <i class="fa-solid fa-user-gear"></i>
   </a>
 </div>
